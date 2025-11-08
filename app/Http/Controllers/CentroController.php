@@ -25,7 +25,7 @@ class CentroController extends Controller
      */
     public function create()
     {
-        //
+        return view('centros.centro_crear');
     }
 
     /**
@@ -33,7 +33,30 @@ class CentroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'name' => 'required',
+            'address' => 'nullable|string',
+        ]);
+
+        /***** INSERCIONES *****/
+        // Insercion a manual
+        Centro::create([
+            'name' => request('name'),
+            'address' => request('address'),
+        ]);
+
+        // Insercion de todo lo que tenga el form y en filleable
+        // Centro::create(request()->all());
+
+        // Insercion de los campos name y address sin hacerlo a mano
+        // Centro::create(request()->only(['name', 'address']));
+
+        /***** INSERCIONES FIN *****/
+
+
+        $success = 'Centro creado con exito!';
+
+        return redirect()->route('centros.create')->with(['success' => $success]);
     }
 
     /**
@@ -49,7 +72,7 @@ class CentroController extends Controller
      */
     public function edit(Centro $centro)
     {
-        //
+        return view('centros.centro_editar')->with(['centro' => $centro]);
     }
 
     /**
@@ -57,7 +80,19 @@ class CentroController extends Controller
      */
     public function update(Request $request, Centro $centro)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'address' => 'nullable|string'
+        ]);
+
+        $centro->update([
+            'name' => request('name'),
+            'address' => request('address'),
+        ]);
+
+        $success = 'Centro actualizado con exito!';
+
+        return redirect()->route('centros.edit', $centro)->with(['success' => $success]);
     }
 
     /**

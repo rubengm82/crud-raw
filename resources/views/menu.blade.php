@@ -8,11 +8,11 @@
 </head>
 <body>
     <div>
-        <h1>Menu</h1>
+        <h1>Menú</h1>
 
         <a href="{{ route('centros.index') }}">Listar Centros</a>
         <br>
-        <a href="{{ route('centros.store') }}">Alta Centro</a>
+        <a href="{{ route('centros.create') }}">Crear Centro</a>
     </div>
 </body>
 </html>

@@ -20,7 +20,9 @@
                 <td>{{ $centro->id }}</td>
                 <td>{{ $centro->name }}</td>
                 <td>{{ $centro->address }}</td>
-                <td>Editar</td>
+                <td>
+                    <a href="{{  route('centros.edit', $centro) }}">Editar</a>
+                </td>
             </tr>
         @endforeach
     </table>
