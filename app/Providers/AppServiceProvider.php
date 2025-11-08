@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\File;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Auto-creación del fichero database/database.sqlite
+        $sqlitePath = database_path('database.sqlite');
+        if (!File::exists($sqlitePath)) {
+            File::put($sqlitePath, '');
+        }
     }
 }
