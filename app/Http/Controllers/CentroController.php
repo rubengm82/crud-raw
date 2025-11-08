@@ -12,7 +12,12 @@ class CentroController extends Controller
      */
     public function index()
     {
-        //
+        $centros = Centro::all();
+
+        return view('centros.centros_lista')->with([
+            'centros' => $centros,
+        ]);
+        
     }
 
     /**
