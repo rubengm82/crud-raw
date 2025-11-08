@@ -1,0 +1,25 @@
+BBDD -> 
+    CENTROS > 
+        ·ID, NAME, ADDRESS
+
+MENU --> 
+    · LISTAR CENTROS
+    · ALTA CENTROS
+
+LISTAR CENTRO -->
+    table > · name
+            · address
+            · EDITAR
+    Volver Menu
+
+CREAR CENTRO -->
+    h1 Alta Centro
+    form > · nombre
+           · address
+
+EDITAR CENTRO -->
+    h1 Edición Centro
+    form > · nombre
+           · address
+    Que haga redirect a Listar centros con mensaje de exito!
+    
