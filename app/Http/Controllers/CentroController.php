@@ -64,7 +64,9 @@ class CentroController extends Controller
      */
     public function show(Centro $centro)
     {
-        //
+        return view('centros.centro_show')->with([
+            'centro' => $centro
+        ]);
     }
 
     /**

@@ -24,7 +24,7 @@
     </form>
 
     <br><br>
-    <a href="{{ url('/') }}">Volver al Menú</a>
+    <a href="{{ route('centros.index') }}">Volver a la lista</a>
 
     @if ($errors->any())
         @foreach ($errors->all() as $error)

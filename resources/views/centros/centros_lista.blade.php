@@ -21,6 +21,7 @@
                 <td>{{ $centro->name }}</td>
                 <td>{{ $centro->address }}</td>
                 <td>
+                    <a href="{{ route('centros.show', $centro) }}">Ver</a><br>
                     <a href="{{ route('centros.edit', $centro) }}">Editar</a>
                     <form action="{{ route('centros.destroy', $centro) }}" method="post">
                         @csrf
