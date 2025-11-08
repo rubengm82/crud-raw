@@ -21,7 +21,13 @@
                 <td>{{ $centro->name }}</td>
                 <td>{{ $centro->address }}</td>
                 <td>
-                    <a href="{{  route('centros.edit', $centro) }}">Editar</a>
+                    <a href="{{ route('centros.edit', $centro) }}">Editar</a>
+                    <form action="{{ route('centros.destroy', $centro) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+
+                        <input type="submit" value="Borrar">
+                    </form>
                 </td>
             </tr>
         @endforeach

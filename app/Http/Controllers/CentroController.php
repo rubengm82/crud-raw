@@ -100,6 +100,8 @@ class CentroController extends Controller
      */
     public function destroy(Centro $centro)
     {
-        //
+        $centro->delete();
+
+        return redirect()->route('centros.index');
     }
 }
