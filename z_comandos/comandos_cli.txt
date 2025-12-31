@@ -9,3 +9,5 @@ Unos seeders concretos sin hace todos:
 Dentro de PHPMyAdmin: -> Borrar BBDD de tokens, vale para borrar una tabla cualquiera
     TRUNCATE TABLE personal_access_tokens;
 
+Listar routes automaticas de web.php
+    php artisan route:list
