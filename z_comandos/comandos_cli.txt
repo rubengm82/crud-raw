@@ -1,0 +1,11 @@
+Borrar toda la BBDD y luego hace los migrate de nuevo con seeders:
+    php artisan db:wipe
+    php artisan migrate
+    php artisan db:seed
+
+Unos seeders concretos sin hace todos:
+    php artisan db:seed --class=EvaluationsSeeder
+
+Dentro de PHPMyAdmin: -> Borrar BBDD de tokens, vale para borrar una tabla cualquiera
+    TRUNCATE TABLE personal_access_tokens;
+
