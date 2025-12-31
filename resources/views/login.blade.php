@@ -11,6 +11,7 @@
         <h1>Login</h1>
 
         <form action="." method="post">
+            @csrf
             <input type="email" name="email" id="email_id" value="{{ old('email') }}">
             <span>Email</span>
              <br>
