@@ -15,11 +15,13 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
+        $redirect = redirect('/')->withErrors(['email' => 'Credenciales inválidas']);
+
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect('/menu');
+            $redirect = redirect('/menu');
         }
 
-        return redirect('/')->withErrors(['email' => 'Credenciales inválidas']);
+        return $redirect;
     }
 
     public function logout()
