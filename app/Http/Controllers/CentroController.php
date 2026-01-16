@@ -17,7 +17,6 @@ class CentroController extends Controller
         return view('centros.centros_lista')->with([
             'centros' => $centros,
         ]);
-        
     }
 
     /**
@@ -46,10 +45,10 @@ class CentroController extends Controller
         ]);
 
         // Insercion de todo lo que tenga el form y en filleable
-        // Centro::create(request()->all());
+        //      Centro::create(request()->all());
 
         // Insercion de los campos name y address sin hacerlo a mano
-        // Centro::create(request()->only(['name', 'address']));
+        //      Centro::create(request()->only(['name', 'address']));
 
         /***** INSERCIONES FIN *****/
 
@@ -87,10 +86,21 @@ class CentroController extends Controller
             'address' => 'nullable|string'
         ]);
 
+        /***** UPDATES *****/
+        
+        // Update manual
         $centro->update([
             'name' => request('name'),
             'address' => request('address'),
         ]);
+
+        // Update de todo lo que tenga el form y en filleable
+        //      $centro->update(request()->all());
+
+        // Update de los campos name y address sin hacerlo a mano
+        //       $centro->update(request()->only(['name', 'address']));
+         
+        /***** UPDATES FIN *****/
 
         $success = 'Centro actualizado con exito!';
 
