@@ -31,7 +31,7 @@ class InscripcioController extends Controller
     {
         $request->validate([
             'nom' => 'required|string|max:255',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:inscripcions,email,NULL,id,esdeveniment_id,' . $request->esdeveniment_id,
             'esdeveniment_id' => 'required|exists:esdeveniments,id',
         ]);
 

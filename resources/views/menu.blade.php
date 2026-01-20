@@ -35,24 +35,28 @@
         @endforeach
     </table>
 
-    @if(Auth::check() && $inscripcions->count() > 0)
+    @if(Auth::check())
         <h2>Inscripcions</h2>
-        <table border="1">
-            <tr>
-                <td>Nom de l’esdeveniment</td>
-                <td>Data de l’esdeveniment</td>
-                <td>Nom de la persona</td>
-                <td>Email de la persona</td>
-            </tr>
-            @foreach ($inscripcions as $inscripcio)
+        @if($inscripcions->count() > 0)
+            <table border="1">
                 <tr>
-                    <td>{{ $inscripcio->esdeveniment->nom }}</td>
-                    <td>{{ $inscripcio->esdeveniment->data }}</td>
-                    <td>{{ $inscripcio->nom }}</td>
-                    <td>{{ $inscripcio->email }}</td>
+                    <td>Nom de l’esdeveniment</td>
+                    <td>Data de l’esdeveniment</td>
+                    <td>Nom de la persona</td>
+                    <td>Email de la persona</td>
                 </tr>
-            @endforeach
-        </table>
+                @foreach ($inscripcions as $inscripcio)
+                    <tr>
+                        <td>{{ $inscripcio->esdeveniment->nom }}</td>
+                        <td>{{ $inscripcio->esdeveniment->data }}</td>
+                        <td>{{ $inscripcio->nom }}</td>
+                        <td>{{ $inscripcio->email }}</td>
+                    </tr>
+                @endforeach
+            </table>
+        @else
+            <p>No hay inscripciones.</p>
+        @endif
     @endif
 </body>
 </html>
