@@ -18,7 +18,16 @@ class EsdevenimentController extends Controller
 
         $inscripcions = [];
         if (Auth::check()) {
-            $inscripcions = Inscripcio::with('esdeveniment')->get();
+            $query = Inscripcio::with('esdeveniment');
+            if (request('nom')) {
+                $query->where('nom', 'like', '%' . request('nom') . '%');
+            }
+            if (request('data')) {
+                $query->whereHas('esdeveniment', function($q) {
+                    $q->where('data', 'like', '%' . request('data') . '%');
+                });
+            }
+            $inscripcions = $query->get();
         }
 
         return view('menu')->with([

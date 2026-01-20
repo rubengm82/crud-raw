@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
 
             $table->string('nom', 100)->nullable();
-            $table->string('email', 100)->nullable()->unique();
+            $table->string('email', 100)->nullable();
             $table->foreignId('esdeveniment_id')->nullable()->constrained('esdeveniments')->onDelete('cascade');
             $table->string('fitxer', 255)->nullable();
+
+            $table->unique(['email', 'esdeveniment_id']);
 
             $table->timestamps();
         });
