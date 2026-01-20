@@ -20,7 +20,9 @@ class EsdevenimentController extends Controller
         if (Auth::check()) {
             $query = Inscripcio::with('esdeveniment');
             if (request('nom')) {
-                $query->where('nom', 'like', '%' . request('nom') . '%');
+                $query->whereHas('esdeveniment', function($q) {
+                    $q->where('nom', 'like', '%' . request('nom') . '%');
+                });
             }
             if (request('data')) {
                 $query->whereHas('esdeveniment', function($q) {
@@ -41,7 +43,7 @@ class EsdevenimentController extends Controller
      */
     public function create()
     {
-        // return view('esdeveniments.esdeveniments_crear');
+        //
     }
 
     /**
@@ -49,30 +51,7 @@ class EsdevenimentController extends Controller
      */
     public function store(Request $request)
     {
-        // request()->validate([
-        //     'name' => 'required',
-        //     'address' => 'nullable|string',
-        // ]);
-
-        /***** INSERCIONES *****/
-        // Insercion a manual
-        // Esdeveniment::create([
-        //     'name' => request('name'),
-        //     'address' => request('address'),
-        // ]);
-
-        // Insercion de todo lo que tenga el form y en filleable
-        //      Esdeveniment::create(request()->all());
-
-        // Insercion de los campos name y address sin hacerlo a mano
-        //      Esdeveniment::create(request()->only(['name', 'address']));
-
-        /***** INSERCIONES FIN *****/
-
-
-        // $success = 'Esdeveniment creado con exito!';
-
-        // return redirect()->route('centros.create')->with(['success' => $success]);
+        //
     }
 
     /**
@@ -80,9 +59,7 @@ class EsdevenimentController extends Controller
      */
     public function show(Esdeveniment $esdeveniment)
     {
-        // return view('centros.centro_show')->with([
-        //     'centro' => $esdeveniment
-        // ]);
+        //
     }
 
     /**
@@ -90,7 +67,7 @@ class EsdevenimentController extends Controller
      */
     public function edit(Esdeveniment $esdeveniment)
     {
-        // return view('centros.centro_editar')->with(['centro' => $esdeveniment]);
+       //
     }
 
     /**
@@ -98,30 +75,7 @@ class EsdevenimentController extends Controller
      */
     public function update(Request $request, Esdeveniment $esdeveniment)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'address' => 'nullable|string'
-        // ]);
-
-        /***** UPDATES *****/
-        
-        // Update manual
-        // $esdeveniment->update([
-        //     'name' => request('name'),
-        //     'address' => request('address'),
-        // ]);
-
-        // Update de todo lo que tenga el form y en filleable
-        //      $esdeveniment->update(request()->all());
-
-        // Update de los campos name y address sin hacerlo a mano
-        //       $esdeveniment->update(request()->only(['name', 'address']));
-         
-        /***** UPDATES FIN *****/
-
-        // $success = 'Esdeveniment actualizado con exito!';
-
-        // return redirect()->route('centros.edit', $esdeveniment)->with(['success' => $success]);
+        //
     }
 
     /**
@@ -129,8 +83,6 @@ class EsdevenimentController extends Controller
      */
     public function destroy(Esdeveniment $esdeveniment)
     {
-        // $esdeveniment->delete();
-
-        // return redirect()->route('centros.index');
+        //
     }
 }

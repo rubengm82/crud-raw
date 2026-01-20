@@ -40,7 +40,7 @@
     @if(Auth::check())
         <h2>Inscripcions</h2>
         <form action="{{ url()->current() }}" method="get">
-            <input type="text" name="nom" placeholder="Cerca per nom" value="{{ request('nom') }}">
+            <input type="text" name="nom" placeholder="Cerca per esdeveniment" value="{{ request('nom') }}">
             <input type="text" name="data" placeholder="Cerca per data" value="{{ request('data') }}">
             <input type="submit" value="Filtrar">
         </form>
