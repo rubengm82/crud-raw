@@ -37,7 +37,7 @@ class InscripcioController extends Controller
 
         Inscripcio::create($request->only(['nom', 'email', 'esdeveniment_id']));
 
-        return redirect()->route('esdeveniments.index')->with('success', 'Inscripció creada con éxito!');
+        return redirect()->route('esdeveniments.index')->with('success', 'Inscripció creada amb èxit!');
     }
 
     /**
@@ -67,8 +67,10 @@ class InscripcioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Esdeveniment $esdeveniment)
+    public function destroy(Inscripcio $inscripcio)
     {
-        //
+        $inscripcio->delete();
+
+        return redirect()->route('esdeveniments.index')->with('success', 'Inscripció eliminada amb èxit!');
     }
 }

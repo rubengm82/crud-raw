@@ -17,6 +17,8 @@
     @else
         <a href="/login">Login</a>
     @endif
+
+ 
     <h2>Esdeveniments</h2>
     <table border="1">
         <tr>
@@ -44,6 +46,7 @@
                     <td>Data de l’esdeveniment</td>
                     <td>Nom de la persona</td>
                     <td>Email de la persona</td>
+                    <td>Acció</td>
                 </tr>
                 @foreach ($inscripcions as $inscripcio)
                     <tr>
@@ -51,11 +54,21 @@
                         <td>{{ $inscripcio->esdeveniment->data }}</td>
                         <td>{{ $inscripcio->nom }}</td>
                         <td>{{ $inscripcio->email }}</td>
+                        <td>
+                            <form action="{{ route('inscripcions.destroy', $inscripcio) }}" method="post" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" value="Borrar">
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </table>
         @else
-            <p>No hay inscripciones.</p>
+            <p>No hi ha inscripcions!</p>
+        @endif
+        @if (session('success'))
+            <p style="color: green">{{ session('success') }}</p>
         @endif
     @endif
 </body>
