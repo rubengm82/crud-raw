@@ -70,7 +70,7 @@ class EsdevenimentController extends Controller
         /***** INSERCIONES FIN *****/
 
 
-        $success = 'Esdeveniment creado con exito!';
+        // $success = 'Esdeveniment creado con exito!';
 
         // return redirect()->route('centros.create')->with(['success' => $success]);
     }
@@ -119,7 +119,7 @@ class EsdevenimentController extends Controller
          
         /***** UPDATES FIN *****/
 
-        $success = 'Esdeveniment actualizado con exito!';
+        // $success = 'Esdeveniment actualizado con exito!';
 
         // return redirect()->route('centros.edit', $esdeveniment)->with(['success' => $success]);
     }
