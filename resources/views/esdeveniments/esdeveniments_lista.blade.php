@@ -23,7 +23,7 @@
             <td>Nom</td>
             <td>Descripció</td>
             <td>Data</td>
-            <td>Acción</td>
+            <td>Acció</td>
         </tr>
         @foreach ($esdeveniments as $esdeveniment)
             <tr>

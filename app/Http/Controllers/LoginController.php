@@ -18,7 +18,7 @@ class LoginController extends Controller
         $redirect = redirect('/')->withErrors(['email' => 'Credenciales inválidas']);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $redirect = redirect('/menu');
+            $redirect = redirect('/');
         }
 
         return $redirect;

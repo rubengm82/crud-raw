@@ -13,22 +13,12 @@ class UsersSeeder extends Seeder
      */
     public function run(): void
     {
-        User::truncate();
+        // User::truncate();
 
         $users = [
             [
-                "name" => "Usuario01 Apellido01 Apellido02",
-                "email" => "usuario01@examen.com",
-                "password" => "admin",
-            ],
-            [
-                "name" => "Usuario02 Apellido01 Apellido02",
-                "email" => "usuario02@examen.com",
-                "password" => "admin",
-            ],
-            [
-                "name" => "Usuario03 Apellido01 Apellido02",
-                "email" => "usuario03@examen.com",
+                "name" => "Juan Perez García",
+                "email" => "admin@admin.com",
                 "password" => "admin",
             ],
         ];
